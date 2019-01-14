@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="laomiXD,ting3208085@gmail.com"><title>hexo搭建博客历程 · LaomiXD</title><meta name="description" content="hexo搭建博客（折腾）历程打一开始搭博客，我是没有想到会踩到这么多坑的。。。
+首先：
+
+采用jekyll + github page 搭建博客。使用这个框架需要下载ruby，下载完之后在bundle install那里卡了很久，谷歌百度都搜过了发现是需要翻墙的问题，国内的镜像速度也非常慢。于是放弃"><meta name="keywords" content="Hexo,HTML,CSS,c++,Linux,algorithm"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">LaomiXD</a></h3><div class="description"><p>今日から俺は!!写博客!!!.</p></div></div></div><ul class="social-links"><li><a href="http://facebook.com/ting.cheung.589"><i class="fa fa-facebook"></i></a></li><li><a href="http://github.com/laomi233"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img src="/images/favicon.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>hexo搭建博客历程</a></h3></div><div class="post-content"><h2 id="hexo搭建博客（折腾）历程"><a href="#hexo搭建博客（折腾）历程" class="headerlink" title="hexo搭建博客（折腾）历程"></a>hexo搭建博客（折腾）历程</h2><p>打一开始搭博客，我是没有想到会踩到这么多坑的。。。</p>
+<p>首先：</p>
+<ul>
+<li>采用jekyll + github page 搭建博客。使用这个框架需要下载ruby，下载完之后在bundle install那里卡了很久，谷歌百度都搜过了发现是需要翻墙的问题，国内的镜像速度也非常慢。于是放弃┑(￣Д ￣)┍</li>
+<li>转向用hexo + github page搭博客。果然用这个框架搭建很快，网上的教程也十分详细，基本上找到一篇像样的博客然后跟着一步一步走就搭好啦。</li>
+<li>三个阶段：<ul>
+<li style="list-style: none"><input type="checkbox" checked> hexo + github page 搭建框架</li>
+<li style="list-style: none"><input type="checkbox"> 绑定自定义域名</li>
+<li style="list-style: none"><input type="checkbox" checked> 更换主题</li>
+</ul>
+</li>
+</ul>
+<h3 id="开始搭建hexo-github-个人博客"><a href="#开始搭建hexo-github-个人博客" class="headerlink" title="开始搭建hexo + github 个人博客"></a>开始搭建hexo + github 个人博客</h3><ul>
+<li><p>安装相关工具</p>
+<ol>
+<li><p>node.js</p>
+</li>
+<li><p>git</p>
+<p>不知道自己安装了没？</p>
+<p>win+R 输入cmd。命令行中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\45418\AppData\Roaming\Typora\typora-user-images\1547397489089.png" alt="1547397489089"></p>
+<p>如果成功返回版本信号，说明你的安装工具已经准备好啦。如果你没有这些东西，出门左拐谷歌百度看看他们的安装教程吧</p>
+</li>
+</ol>
+</li>
+<li><p>安装hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>看看是不是安装成功了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>到你的github那里new repository</p>
+<p>进入这个仓库，点击settings,修改名字为</p>
+<p><img src="C:\Users\45418\AppData\Roaming\Typora\typora-user-images\1547397829148.png" alt="1547397829148"></p>
+<p>点击rename后，查看settings拉到最下面，可以看到：</p>
+<p><img src="C:\Users\45418\AppData\Roaming\Typora\typora-user-images\1547397891694.png" alt="1547397891694"></p>
+</li>
+<li><p>使用hexo模板，把源码放到github上面</p>
+<p>settings里面的链接点击后只有404页面，因为这个时候我们的仓库是空的。所以我们要把我们的东西给放到github上面去。</p>
+<p>我们需要在本地随便你喜欢的哪个文件夹来放hexo。右键这个文件夹选中 GIT BASH HERE</p>
+<p>然后把我们仓库clone到这个文件夹。</p>
+<p><img src="C:\Users\45418\AppData\Roaming\Typora\typora-user-images\1547398095691.png" alt="1547398095691"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/laomi233/laomi233.github.io.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入我们克隆到本地文件夹的目录。然后安装一些hexokinase相关的东西。最好在cmd下面输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> laomi233.github.io</span><br><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化hexo配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置node</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载hexo模板里面的文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启本地服务器，在浏览器上面输入localhost:4000</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>可能会有端口占用问题，这时候改一个端口就可以本地查看了。</p>
+<p>如果成功，你会在浏览器看到一个经典的hexo模板。</p>
+<p>大概是这样</p>
+<p><img src="C:\Users\45418\AppData\Roaming\Typora\typora-user-images\1547398632283.png" alt="1547398632283"></p>
+</li>
+</ul>
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>​    没想到在更换主题这里踩了很久的坑，主要是自己只能看懂一点js代码对node.js完全不懂让自己走了好久弯路（我只是想搭个博客好好写博文而已啊இ௰இ）。主要是配置文件那里，后面会讲怎么解决。</p>
+<p>​    当然如果你觉得默认主题已经很好看了就跳过这部分专心写博客吧。但是作为一个致力于折腾的人。这一步我是不会放弃的。</p>
+<ul>
+<li><p>请先挑选一个你喜欢的主题，你可以到github或者google hexo themes，到第一个网站去挑选。</p>
+</li>
+<li><p>我挑选的主题github地址：<a href="https://github.com/Ben02/hexo-theme-Anatole" target="_blank" rel="noopener">https://github.com/Ben02/hexo-theme-Anatole</a></p>
+</li>
+<li><p>查看readme会有详细的安装中文文档，跟着做就ok。</p>
+</li>
+<li><p>按照文档安装过程中我踩到的一个坑是顶部导航关于和友链两个页面的连接，如果自己没有新建这两个页面点击之后是404。issue里面也有关于这个问题的解决方案。奈何自己对前端知识所知尚浅，在自己本地文件夹的命令行hexo new page “about”之后虽然已经新建了about这个文件夹，但是还少了一步：</p>
+<p><strong>到_config.yml文件的底部添加</strong></p>
+<p><strong>menu:</strong></p>
+<p><strong>About: /about</strong></p>
+<p><strong>Links: /links</strong></p>
+<p>关于配置文件还有一个要改动的地方，进入自己本地文件夹的_config.yml。注意不是themes文件夹里面自己的主题的文件夹，然后把deploy那里的内容修改如下：repository是你的仓库的ssh地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:laomi233/laomi233.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在命令行输入以下命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这时候你可以在本地localhost:4000查看本地，进行主题预览</p>
+</li>
+<li><p>finally 命令行输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>进去你的博客地址XXX.github.io就可以查看是否deploy成功啦！不然你刷新多几次试试</p>
+<p>我也不懂为什么自己在主题这个环节卡住- -，还是一个需要注意的就是，请在本地查看确认无误后在deploy上去，不然像我这样就很混乱了gg</p>
+<h3 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h3><p>这块还没弄，等有空的时候补上去~</p>
+</li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-01-13</span><i class="fa fa-tag"></i><a class="tag" href="/tags/博客搭建/" title="博客搭建">博客搭建 </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,http://yoursite.com/2019/01/13/hexo搭建博客历程/,LaomiXD,hexo搭建博客历程,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2019/01/12/hello-hexo/" title="hello,hexo">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
