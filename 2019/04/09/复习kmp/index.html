@@ -49,30 +49,27 @@ Return the index of the fi"><meta name="keywords" content="Hexo,HTML,CSS,c++,Lin
 <li><p><span style="color:red;">那么kmp的关键之处，就是在当前失配的字符得到已经匹配过的字符串中，有公共前缀和后缀的最多元素个数</span></p>
 </li>
 <li><p>那么对于这种情况</p>
-<p><span style="color:orange;">0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22</span><br>B B C   A B C D A B     A  B  C  D  A  B C  D  A   B  D  E</p>
-<pre><code>&lt;span style = &quot;color:red;&quot;&gt;A B&lt;/span&gt; C D &lt;span style=&quot;color:blue&quot;&gt;A B &lt;/span&gt;D ⑤
-      &lt;span style = &quot;color:red;&quot;&gt;A B&lt;/span&gt; C D &lt;span style = &quot;color:blue;&quot;&gt;A B&lt;/span&gt; D ⑥
-</code></pre><p> 我们还记得，⑤中的p[6]的D和t[10]的空格不匹配，我们要把红色的AB通过挪动到达原来蓝色AB的位置。移动的位数则是：<span style="color:purple;">已经匹配的位数-最长公共前缀和后缀的长度</span></p>
+<p><img src="/2019/04/09/复习kmp/3.png" alt="3"><br> 我们还记得，⑤中的p[6]的D和t[10]的空格不匹配，我们要把红色的AB通过挪动到达原来蓝色AB的位置。移动的位数则是：<span style="color:purple;">已经匹配的位数-最长公共前缀和后缀的长度</span></p>
 <p>很显然：已经匹配的位数-&gt;j+1。现在的问题在于怎么求得已经匹配的最长公共前缀后缀的长度。</p>
 <p>kmp中有一个next数组，目的就是为了求这个东西。我们来看p</p>
-<p><img src="/复习kmp/1.jpg" alt="1"></p>
+<p><img src="/2019/04/09/复习kmp/1.jpg" alt="1"></p>
 </li>
 </ul>
 <p>​    <strong>怎么找到更短的公共前后缀长度？</strong></p>
 <p>​    方法是我们不断递归使得k = next[k-1]，查看p[k]是否与p[j]相等。若想等，next[j] = k。由于对于p0……pk-1 = pj-k……pj-1，我们可以通过对称关系来求当前的next[j]。</p>
-<p>​    <strong>回顾一下我们的next数组是什么？</strong>：对于next[k-1]，表示的是p[k]之前的子串中，存在长度为k-1的相同前后缀。s</p>
-<p><img src="/复习kmp/2.jpg" alt="2"></p>
+<p>​    <strong>回顾一下我们的next数组是什么？</strong>：对于next[k-1]，表示的是p[k]之前的子串中，存在长度为k-1的相同前后缀。</p>
+<p><img src="/2019/04/09/复习kmp/2.jpg" alt="2"></p>
 <p>至此我们求的next数组的所有数值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	   <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line">	   A B C D A B D</span><br><span class="line">next   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span></span><br><span class="line">A  B  C  D  A  B  D</span><br><span class="line"><span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">0</span> --- next数组</span><br></pre></td></tr></table></figure>
 <p>预处理完next数组后，我们就可以将t和p字符串通过next数组进行匹配了。</p>
 <hr>
 <p>继续回到⑤的情况。</p>
-<p><span style="color:orange;">0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22</span><br>B B C   A B C D A B     A  B  C  D  A  B C  D  A   B  D  E<br>            <span style="color:red;">A B</span> C D <span style="color:blue">A B </span>D ⑤<br>                  <span style="color:red;">A B</span> C D <span style="color:blue;">A B</span> D ⑥</p>
+<p><img src="/2019/04/09/复习kmp/3.png" alt="3"></p>
 <p>我们知道红色AB移动到原来蓝色AB所需要的位数=</p>
 <p><span style="color:purple;">已经匹配的位数-最长公共前缀和后缀的长度</span></p>
 <p>现在t的下标i为10，j的下标为6，我们知道最长公共前缀和后缀的长度 = next[j-1]。</p>
 <p>所以我们得到移动的位数是j - next[j-1] = 4。j = j - 移动位数。按照kmp做法我们在t中找p的过程如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span> <span class="number">18</span> <span class="number">19</span> <span class="number">20</span> <span class="number">21</span> <span class="number">22</span></span><br><span class="line">B B C   A B C D A B     A  B  C  D  A  B C  D  A   B  D  E</span><br><span class="line">		A B C D A B D </span><br><span class="line">  			    A B C D A  B  D </span><br><span class="line">  			        A B C  D  A  B  D </span><br><span class="line">  			          A B  C  D  A  B  D</span><br><span class="line">  			          	A  B  C  D  A  B D</span><br><span class="line">  			          				A  B C  D  A   B  D ---&gt;done</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/09/复习kmp/4.png" alt="4"></p>
 <p>这就是kmp的表现过程和next数组在kmp中的用处。</p>
 <hr>
 <p>回到题目，我们试下用代码实现怎么预处理next数组，以及怎么运用next数组来实现kmp算法。</p>
