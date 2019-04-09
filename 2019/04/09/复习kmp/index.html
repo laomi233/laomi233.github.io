@@ -55,13 +55,13 @@ Return the index of the fi"><meta name="keywords" content="Hexo,HTML,CSS,c++,Lin
 </code></pre><p> 我们还记得，⑤中的p[6]的D和t[10]的空格不匹配，我们要把红色的AB通过挪动到达原来蓝色AB的位置。移动的位数则是：<span style="color:purple;">已经匹配的位数-最长公共前缀和后缀的长度</span></p>
 <p>很显然：已经匹配的位数-&gt;j+1。现在的问题在于怎么求得已经匹配的最长公共前缀后缀的长度。</p>
 <p>kmp中有一个next数组，目的就是为了求这个东西。我们来看p</p>
-<p><img src="/复习kmp/1.jpg" alt="1554792111617"></p>
+<p><img src="/复习kmp/1.jpg" alt="1"></p>
 </li>
 </ul>
 <p>​    <strong>怎么找到更短的公共前后缀长度？</strong></p>
 <p>​    方法是我们不断递归使得k = next[k-1]，查看p[k]是否与p[j]相等。若想等，next[j] = k。由于对于p0……pk-1 = pj-k……pj-1，我们可以通过对称关系来求当前的next[j]。</p>
 <p>​    <strong>回顾一下我们的next数组是什么？</strong>：对于next[k-1]，表示的是p[k]之前的子串中，存在长度为k-1的相同前后缀。s</p>
-<p><img src="/复习kmp/2.jpg" alt="1554793769900"></p>
+<p><img src="/复习kmp/2.jpg" alt="2"></p>
 <p>至此我们求的next数组的所有数值：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	   <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line">	   A B C D A B D</span><br><span class="line">next   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p>预处理完next数组后，我们就可以将t和p字符串通过next数组进行匹配了。</p>
